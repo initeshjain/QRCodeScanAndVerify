@@ -2,5 +2,9 @@ pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
 plugins { id("com.facebook.react.settings") }
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
 rootProject.name = 'QRCodeScannerApp'
+
+// Include the react-native-camera project only once with the appropriate path
+project(':react-native-camera').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-camera/android')
+
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
